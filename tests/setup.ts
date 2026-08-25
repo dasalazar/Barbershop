@@ -22,7 +22,6 @@ class MockResizeObserver {
   unobserve() {}
   disconnect() {}
 }
-// @ts-expect-error jsdom has no ResizeObserver
 global.ResizeObserver = MockResizeObserver;
 
 Object.defineProperty(window, "matchMedia", {
