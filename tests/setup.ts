@@ -8,8 +8,8 @@ afterEach(() => {
 });
 
 vi.mock("next/image", () => ({
-  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) =>
-    React.createElement("img", props),
+  default: ({ fill, priority, ...rest }: any) =>
+    React.createElement("img", rest),
 }));
 
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
