@@ -13,9 +13,9 @@ export function Header() {
     <Card className="rounded-none border-t-0 border-r-0 border-l-0">
       <CardContent className="p-5 flex flex-row items-center justify-between">
         <Link href="/">
-          <div className="flex items-center gap-2">
-            <span className="font-extrabold text-lg text-primary">FSW</span>
-            <span className="font-bold text-lg text-white">Barber</span>
+          <div className="flex items-center gap-1.5">
+            <span className="font-extrabold text-lg text-primary">Barber</span>
+            <span className="font-bold text-lg text-white">Shop</span>
           </div>
         </Link>
         <Sheet>

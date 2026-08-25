@@ -7,7 +7,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FSW Barber - Agendamento para Barbearias",
+  title: "Barber Shop - Agendamento para Barbearias",
   description: "Agende seus serviços favoritos na melhor barbearia perto de você.",
 };
 
