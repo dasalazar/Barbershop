@@ -4,13 +4,14 @@ const prisma = new PrismaClient();
 
 async function seedDatabase() {
   try {
+    // Imagens em alta definição e específicas para barbearias (Unsplash)
     const images = [
-      "https://utfs.io/f/c97a2dc9-cf62-468b-a851-bfd2bdde775f-16p.png",
-      "https://utfs.io/f/45331760-899c-4b4b-910e-e00babb6ed81-16q.png",
-      "https://utfs.io/f/92ab5a27-a068-45b6-8962-087944b200b3-16r.png",
-      "https://utfs.io/f/0522fdaf-0357-4213-8f52-d830675d1675-16s.png",
-      "https://utfs.io/f/7a30d1f5-264b-4f61-a409-730266abb268-16t.png",
-      "https://utfs.io/f/8a4576d7-d510-4e10-b942-b604153b6cb1-16u.png",
+      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1512690459411-b9245aed614b?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1532710093739-9470acff878f?w=800&auto=format&fit=crop&q=80",
     ];
 
     const creativeNames = [
@@ -34,41 +35,46 @@ async function seedDatabase() {
     const services = [
       {
         name: "Corte de Cabelo",
-        description: "Estilo personalizado com as últimas tendências.",
+        description: "Estilo personalizado com as últimas tendências e acabamento impecável.",
         price: 60.0,
-        imageUrl: "https://utfs.io/f/0ddfbd26-a424-43a0-aaf3-c3f1dc6be6d1-1kgxo7.png",
+        imageUrl: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&auto=format&fit=crop&q=80",
       },
       {
         name: "Barba",
-        description: "Modelagem completa e toalha quente.",
+        description: "Modelagem completa de barba com produtos premium e toalha quente.",
         price: 40.0,
-        imageUrl: "https://utfs.io/f/e6bdffb6-24a9-4ecd-a58a-4d3092c6d60d-1kgxo8.png",
+        imageUrl: "https://images.unsplash.com/photo-1621607512214-68297480165e?w=800&auto=format&fit=crop&q=80",
       },
       {
         name: "Pézinho",
-        description: "Acabamento perfeito para o seu visual.",
+        description: "Acabamento perfeito de nuca e costeletas para manter o visual em dia.",
         price: 35.0,
-        imageUrl: "https://utfs.io/f/8a4576d7-d510-4e10-b942-b604153b6cb1-16u.png",
+        imageUrl: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&auto=format&fit=crop&q=80",
       },
       {
         name: "Sobrancelha",
-        description: "Design e alinhamento de sobrancelhas.",
+        description: "Design e alinhamento de sobrancelhas masculinas na navalha ou pinça.",
         price: 20.0,
-        imageUrl: "https://utfs.io/f/2118f76e-89e4-43e6-87c9-8f157500c533-bvr825.png",
+        imageUrl: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&auto=format&fit=crop&q=80",
       },
       {
         name: "Massagem",
-        description: "Massagem relaxante capilar e facial.",
+        description: "Massagem capilar e facial relaxante para aliviar a tensão do dia.",
         price: 50.0,
-        imageUrl: "https://utfs.io/f/c4919193-a675-4c47-9f21-ebd86d1c8e6a-4oen2a.png",
+        imageUrl: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&auto=format&fit=crop&q=80",
       },
       {
         name: "Hidratação",
-        description: "Tratamento profundo para cabelos e barba.",
+        description: "Tratamento profundo para revitalização de cabelos secos e barba.",
         price: 25.0,
-        imageUrl: "https://utfs.io/f/8a4576d7-d510-4e10-b942-b604153b6cb1-16u.png",
+        imageUrl: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&auto=format&fit=crop&q=80",
       },
     ];
+
+    // Limpar tabelas existentes para garantir dados consistentes
+    await prisma.booking.deleteMany();
+    await prisma.service.deleteMany();
+    await prisma.barbershop.deleteMany();
 
     for (let i = 0; i < creativeNames.length; i++) {
       const name = creativeNames[i];
@@ -82,7 +88,7 @@ async function seedDatabase() {
           imageUrl,
           phones: ["(11) 99999-9999", "(11) 98888-8888"],
           description:
-            "Oferecemos uma experiência completa de cuidado masculino com profissionais de ponta em um ambiente clássico e acolhedor.",
+            "Oferecemos uma experiência completa de cuidado masculino com profissionais renomados em um ambiente acolhedor, sofisticado e tradicional.",
         },
       });
 
@@ -99,7 +105,7 @@ async function seedDatabase() {
       }
     }
 
-    console.log("Database seeded successfully!");
+    console.log("Database seeded successfully with high-quality images!");
   } catch (error) {
     console.error("Error seeding the database: ", error);
   } finally {
