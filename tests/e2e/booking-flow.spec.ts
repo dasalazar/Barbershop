@@ -30,7 +30,7 @@ test.describe("authenticated booking flow", () => {
     await page.getByRole("gridcell", { name: "15", exact: true }).click();
 
     await page
-      .getByRole("button", { name: /^\d{2}:\d{2}$/ })
+      .getByRole("button", { name: /^\d{2}:\d{2}$/, disabled: false })
       .first()
       .click();
 

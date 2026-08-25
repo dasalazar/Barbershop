@@ -6,6 +6,11 @@ import { PrismaClient } from "@prisma/client";
 const FIXTURES_PATH = path.join(__dirname, ".fixtures.json");
 
 export default async function globalSetup() {
+  const url = process.env.DATABASE_URL ?? "";
+  if (!/_test/.test(url) || !/localhost|127\.0\.0\.1/.test(url)) {
+    throw new Error(`Refusing to seed: DATABASE_URL is not a local test database (${url})`);
+  }
+
   const prisma = new PrismaClient();
 
   try {

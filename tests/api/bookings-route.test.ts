@@ -30,6 +30,7 @@ describe("GET /api/bookings", () => {
     const response = await GET(request);
 
     expect(response.status).toBe(400);
+    expect(mockedGetDayBookings).not.toHaveBeenCalled();
   });
 
   it("returns the day's bookings for a valid request", async () => {
