@@ -43,3 +43,10 @@ aulas/
 CLAUDE.md
 claude.md
 *claude*
+
+# Testing (e2e)
+.env.test
+/test-results/
+/playwright-report/
+/blob-report/
+tests/e2e/.fixtures.json
